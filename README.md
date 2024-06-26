@@ -2,8 +2,6 @@
 <<<<<<< HEAD
 # Setup Docker Laravel 11 com PHP 8.3 passo a passo
 =======
-# Setup Docker Laravel 11 com PHP 8.3 Passo a passo
->>>>>>> 43bcdd62d744adcd1d4de4afbfa2260be38259f0
 Clone Repositório
 ```sh
 git clone -b laravel-11-with-php-8.3 https://github.com/especializati/setup-docker-laravel.git app-laravel
