@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+Route::get('/users',function() {
+    return 'retorno';
+});
 
 Route::get('/', function () {
     return view('welcome');
