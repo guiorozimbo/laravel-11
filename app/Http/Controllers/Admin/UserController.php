@@ -20,6 +20,15 @@ class UserController extends Controller
     }
     public function store(StoreUserRequest $request){
         $user = User::create($request->all());
-        return redirect()->route('users.index')->with('success','Usuário criado com sucesso');
+        return redirect()
+        ->route('users.index')
+        ->with('success','Usuário criado com sucesso');
+    }
+    public function edit(string $id){
+
+      if (!$user = User::find($id)){
+        return redirect()->route('users.index')->with('message','Usuário inválido');
+      }
+      return view('admin.users.edit',compact('user'));
     }
 }
