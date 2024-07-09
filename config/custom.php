@@ -1,8 +1,8 @@
 <?php
 return [
     'admins'=> [
-        'guilherme@gmail.com'
+        'guilher123@gmail.com'
     ]
-]
+    ];
 
-?>
+

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Http\Middleware\CheckIsAdmins;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable,SoftDeletes;
@@ -45,7 +45,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function isAdmins():bool {
-return in_array($this->email,config('custom.admins'));
+    public function isAdm():bool {
+    return in_array($this->email, config('custom.admins'));
     }
 }
