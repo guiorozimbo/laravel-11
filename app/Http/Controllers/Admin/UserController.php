@@ -8,6 +8,7 @@ use App\http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -56,9 +57,14 @@ class UserController extends Controller
             return view('admin.users.show',compact('user'));
         }
         public function destroy(string $id){
+            if(Gate::allows('is-admin')){
+                return back()->with('message','Você não tem permissão para deletar este usuário');
+  
+            }
             if (!$user = User::find($id)){
                 return redirect()->route('users.index')->with('message','Usuário não encontrado');
             }
+
 
           if(Auth::user()->id === $user->id){
             return back()->with('message','Você mão pode deletar o seu próprio perfil');
